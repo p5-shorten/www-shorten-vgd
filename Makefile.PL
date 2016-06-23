@@ -18,6 +18,7 @@ my %WriteMakefileArgs = (
   "NAME" => "WWW::Shorten::VGd",
   "PREREQ_PM" => {
     "Carp" => 0,
+    "Exporter" => 0,
     "HTML::Entities" => 0,
     "Try::Tiny" => "0.24",
     "WWW::Shorten" => "3.09",
@@ -40,6 +41,7 @@ my %WriteMakefileArgs = (
 
 my %FallbackPrereqs = (
   "Carp" => 0,
+  "Exporter" => 0,
   "ExtUtils::MakeMaker" => 0,
   "File::Spec" => 0,
   "HTML::Entities" => 0,

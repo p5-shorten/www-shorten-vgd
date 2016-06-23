@@ -4,6 +4,7 @@ on 'runtime' => sub {
     requires 'warnings';
     requires 'base';
     requires 'Carp';
+    requires 'Exporter';
     requires 'HTML::Entities';
     requires 'Try::Tiny';
     requires 'WWW::Shorten' => '3.09';
