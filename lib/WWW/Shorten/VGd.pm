@@ -6,7 +6,7 @@ our @EXPORT = qw( makeashorterlink makealongerlink );
 use Carp ();
 use HTML::Entities;
 
-our $VERSION = '0.004';
+our $VERSION = '0.005';
 $VERSION = eval $VERSION;
 
 sub makeashorterlink {
