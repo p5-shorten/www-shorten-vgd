@@ -3,39 +3,38 @@ use strict;
 use warnings;
 use base qw( WWW::Shorten::generic Exporter );
 our @EXPORT = qw( makeashorterlink makealongerlink );
-use Carp;
+use Carp ();
 use HTML::Entities;
-
+use Data::Dumper::Concise;
 our $VERSION = '0.004';
 $VERSION = eval $VERSION;
 
 sub makeashorterlink {
-    my $url = shift or croak 'No URL passed to makeashorterlink';
+    my $url = shift or Carp::croak('No URL passed to makeashorterlink');
     my $ua = __PACKAGE__->ua();
-    my $response = $ua->post('http://v.gd/create.php', [
+    my $response = $ua->post('https://v.gd/create.php', {
         url => $url,
-        source => 'PerlAPI-' . (defined __PACKAGE__->VERSION ? __PACKAGE__->VERSION : 'dev'),
         format => 'simple',
-    ]);
+    });
+
     return unless $response->is_success;
-    my $shorturl = $response->{_content};
+    my $shorturl = $response->decoded_content();
     return if $shorturl =~ m/Error/;
-    if ($response->content =~ m{(\Qhttp://v.gd/\E[\w_]+)}) {
+    if ($response->content =~ m{^(\Qhttps://v.gd/\E\w+)$}) {
         return $1;
     }
     return;
 }
 
 sub makealongerlink {
-    my $url = shift or croak 'No v.gd key/URL passed to makealongerlink';
+    my $url = shift or Carp::croak('No v.gd key/URL passed to makealongerlink');
     my $ua = __PACKAGE__->ua();
 
-    $url =~ s{\Qhttp://v.gd/\E}{}i;
-    my $response = $ua->post('http://v.gd/forward.php', [
+    $url =~ s{\Qhttps?://v.gd/\E}{}i;
+    my $response = $ua->post('https://v.gd/forward.php', {
         shorturl => $url,
-        source => 'PerlAPI-' . (defined __PACKAGE__->VERSION ? __PACKAGE__->VERSION : 'dev'),
         format   => 'simple',
-    ]);
+    });
     # use Data::Dumper;
     # print STDERR Dumper $response;
     return unless $response->is_success;
