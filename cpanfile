@@ -6,6 +6,7 @@ on 'runtime' => sub {
     requires 'Carp';
     requires 'Exporter';
     requires 'HTML::Entities';
+    requires 'IO::Socket::SSL';
     requires 'Try::Tiny';
     requires 'WWW::Shorten' => '3.09';
 };
