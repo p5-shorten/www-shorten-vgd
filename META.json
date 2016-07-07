@@ -51,6 +51,7 @@
             "Carp" : "0",
             "Exporter" : "0",
             "HTML::Entities" : "0",
+            "IO::Socket::SSL" : "0",
             "Try::Tiny" : "0.24",
             "WWW::Shorten" : "3.09",
             "base" : "0",

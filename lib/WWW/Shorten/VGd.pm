@@ -49,7 +49,7 @@ __END__
 
 =head1 NAME
 
-WWW::Shorten::VGd - Shorten URLs using L<http://v.gd/>
+WWW::Shorten::VGd - Shorten URLs using L<https://v.gd/>
 
 =head1 SYNOPSIS
 
@@ -64,17 +64,17 @@ WWW::Shorten::VGd - Shorten URLs using L<http://v.gd/>
 
 =head1 DESCRIPTION
 
-A Perl interface to the web site L<http://v.gd/>.  The service simply maintains
+A Perl interface to the web site L<https://v.gd/>.  The service simply maintains
 a database of long URLs, each of which has a unique identifier.
 
 By default, this URL shortening service will show you a preview page before redirecting
-you. This can be turned off by setting a cookie at L<http://v.gd/previews.php>.
+you. This can be turned off by setting a cookie at L<https://v.gd/previews.php>.
 
 =head1 FUNCTIONS
 
 =head2 makeashorterlink
 
-The function C<makeashorterlink> will call the L<http://v.gd/> web site passing
+The function C<makeashorterlink> will call the L<https://v.gd/> web site passing
 it your long URL and will return the shorter version.
 
 =head2 makealongerlink
