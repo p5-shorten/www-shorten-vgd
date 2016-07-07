@@ -7,7 +7,7 @@ use 5.008001;
 use ExtUtils::MakeMaker;
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Shorten URLs using L<http://v.gd/>",
+  "ABSTRACT" => "Shorten URLs using L<https://v.gd/>",
   "AUTHOR" => "Mike Doherty <doherty\@cpan.org>",
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0

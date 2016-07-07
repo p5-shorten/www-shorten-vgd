@@ -1,6 +1,6 @@
 # NAME
 
-WWW::Shorten::VGd - Shorten URLs using [http://v.gd/](http://v.gd/)
+WWW::Shorten::VGd - Shorten URLs using [https://v.gd/](https://v.gd/)
 
 # SYNOPSIS
 
@@ -15,17 +15,17 @@ WWW::Shorten::VGd - Shorten URLs using [http://v.gd/](http://v.gd/)
 
 # DESCRIPTION
 
-A Perl interface to the web site [http://v.gd/](http://v.gd/).  The service simply maintains
+A Perl interface to the web site [https://v.gd/](https://v.gd/).  The service simply maintains
 a database of long URLs, each of which has a unique identifier.
 
 By default, this URL shortening service will show you a preview page before redirecting
-you. This can be turned off by setting a cookie at [http://v.gd/previews.php](http://v.gd/previews.php).
+you. This can be turned off by setting a cookie at [https://v.gd/previews.php](https://v.gd/previews.php).
 
 # FUNCTIONS
 
 ## makeashorterlink
 
-The function `makeashorterlink` will call the [http://v.gd/](http://v.gd/) web site passing
+The function `makeashorterlink` will call the [https://v.gd/](https://v.gd/) web site passing
 it your long URL and will return the shorter version.
 
 ## makealongerlink

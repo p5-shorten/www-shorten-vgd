@@ -5,7 +5,7 @@ use base qw( WWW::Shorten::generic Exporter );
 our @EXPORT = qw( makeashorterlink makealongerlink );
 use Carp ();
 use HTML::Entities;
-use Data::Dumper::Concise;
+
 our $VERSION = '0.004';
 $VERSION = eval $VERSION;
 
