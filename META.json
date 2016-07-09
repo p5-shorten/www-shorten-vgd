@@ -51,7 +51,7 @@
             "Carp" : "0",
             "Exporter" : "0",
             "HTML::Entities" : "0",
-            "IO::Socket::SSL" : "0",
+            "LWP::Protocol::https" : "0",
             "Try::Tiny" : "0.24",
             "WWW::Shorten" : "3.09",
             "base" : "0",
@@ -97,7 +97,7 @@
       },
       "plugins" : [
          {
-            "class" : "Dist::Zilla::Plugin::GatherDir",
+            "class" : "Dist::Zilla::Plugin::Git::GatherDir",
             "config" : {
                "Dist::Zilla::Plugin::GatherDir" : {
                   "exclude_filename" : [
@@ -111,10 +111,13 @@
                   "prefix" : "",
                   "prune_directory" : [],
                   "root" : "."
+               },
+               "Dist::Zilla::Plugin::Git::GatherDir" : {
+                  "include_untracked" : 0
                }
             },
-            "name" : "@Starter/GatherDir",
-            "version" : "6.005"
+            "name" : "Git::GatherDir",
+            "version" : "2.039"
          },
          {
             "class" : "Dist::Zilla::Plugin::PruneCruft",
@@ -264,6 +267,11 @@
             "class" : "Dist::Zilla::Plugin::UploadToCPAN",
             "name" : "@Starter/UploadToCPAN",
             "version" : "6.005"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::OurPkgVersion",
+            "name" : "OurPkgVersion",
+            "version" : "0.10"
          },
          {
             "class" : "Dist::Zilla::Plugin::ReadmeAnyFromPod",
@@ -424,11 +432,6 @@
             "class" : "Dist::Zilla::Plugin::Test::ChangesHasContent",
             "name" : "Test::ChangesHasContent",
             "version" : "0.010"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::PkgVersion",
-            "name" : "PkgVersion",
-            "version" : "6.005"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::Kwalitee",

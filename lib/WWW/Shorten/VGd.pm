@@ -1,12 +1,15 @@
 package WWW::Shorten::VGd;
+
 use strict;
 use warnings;
+
 use base qw( WWW::Shorten::generic Exporter );
 our @EXPORT = qw( makeashorterlink makealongerlink );
-use Carp ();
-use HTML::Entities;
 
-our $VERSION = '0.005';
+use Carp ();
+use HTML::Entities qw(decode_entities);
+
+# VERSION
 $VERSION = eval $VERSION;
 
 sub makeashorterlink {
@@ -19,11 +22,9 @@ sub makeashorterlink {
 
     return unless $response->is_success;
     my $shorturl = $response->decoded_content();
-    return if $shorturl =~ m/Error/;
-    if ($response->content =~ m{^(\Qhttps://v.gd/\E\w+)$}) {
-        return $1;
-    }
-    return;
+    return undef unless $shorturl;
+    return undef if $shorturl =~ m/^\s*Error/;
+    return $shorturl;
 }
 
 sub makealongerlink {
@@ -31,15 +32,15 @@ sub makealongerlink {
     my $ua = __PACKAGE__->ua();
 
     $url =~ s{\Qhttps?://v.gd/\E}{}i;
-    my $response = $ua->post('https://v.gd/forward.php', {
+    my $res = $ua->post('https://v.gd/forward.php', {
         shorturl => $url,
         format   => 'simple',
     });
-    # use Data::Dumper;
-    # print STDERR Dumper $response;
-    return unless $response->is_success;
 
-    my $longurl = $response->{_content};
+    return undef unless $res->is_success;
+    my $longurl = $res->decoded_content;
+    return undef unless $longurl;
+    return undef if $longurl =~ m/^\s*Error/;
     return decode_entities($longurl);
 }
 

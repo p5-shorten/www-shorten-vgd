@@ -1,7 +1,12 @@
 Revision history for {{$dist->name}}
 
 {{$NEXT}}
-    -
+    - Cleaned up parsing a bit
+    - Build $VERSION from dist.ini
+    - Removed some redundant tests
+    - Remove MANIFEST.SKIP file
+    - LWP::Protocol::https requirement
+    - Remove requirement for IO::Socket::SSL
 
 0.004     2016-07-06
     - Updated the build to use [@Starter]
