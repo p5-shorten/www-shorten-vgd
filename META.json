@@ -269,9 +269,9 @@
             "version" : "6.005"
          },
          {
-            "class" : "Dist::Zilla::Plugin::OurPkgVersion",
-            "name" : "OurPkgVersion",
-            "version" : "0.10"
+            "class" : "Dist::Zilla::Plugin::PkgVersion",
+            "name" : "PkgVersion",
+            "version" : "6.005"
          },
          {
             "class" : "Dist::Zilla::Plugin::ReadmeAnyFromPod",
